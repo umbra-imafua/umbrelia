@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0uvo0fh1daab"]
+
+[ext_resource type="PackedScene" uid="uid://bb8ahexdm1boj" path="res://testcharacter.tscn" id="1_girgs"]
+[ext_resource type="Texture2D" uid="uid://1fl4k2yv317f" path="res://checkblopReduce.png" id="2_2g25q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfyoo"]
+size = Vector2(64, 64)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_girgs")]
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(0.465, 0.465)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(146, 412)
+metadata/_edit_group_ = true
+
+[node name="CheckblopReduce" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("2_2g25q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_hfyoo")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+position = Vector2(-146, -412)
+color = Color(0, 0, 1, 0.643137)
+polygon = PackedVector2Array(4, 233, 62, 439, 299, 477, 657, 457, 830, 219, 1011, 189, 1088, 433, 1084, 617, -178, 603, -178, 370, -18, 301)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-146, -412)
+polygon = PackedVector2Array(4, 233, 62, 439, 299, 477, 657, 457, 830, 219, 1011, 189, 1088, 433, 1084, 617, -178, 603, -178, 370, -18, 301)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[editable path="CharacterBody2D"]

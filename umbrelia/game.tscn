@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwoxxvftmajsa"]
+
+[ext_resource type="Script" path="res://code/root.gd" id="1_8yapt"]
+[ext_resource type="AudioStream" uid="uid://cxqurhs34pcbp" path="res://audio/music/music.106.mp3" id="1_uwqjm"]
+[ext_resource type="Script" path="res://code/music.gd" id="2_7temr"]
+[ext_resource type="Script" path="res://code/debug.gd" id="4_5m0nq"]
+[ext_resource type="Script" path="res://code/ui.gd" id="5_rg17x"]
+
+[node name="Root" type="Node2D"]
+position = Vector2(1, -2)
+script = ExtResource("1_8yapt")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_uwqjm")
+autoplay = true
+bus = &"Music"
+script = ExtResource("2_7temr")
+
+[node name="StartTimer" type="Timer" parent="Music"]
+
+[node name="Debug" type="Node2D" parent="."]
+script = ExtResource("4_5m0nq")
+
+[node name="UI" type="Control" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_rg17x")
